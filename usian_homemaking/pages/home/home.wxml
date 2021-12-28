@@ -1,1 +1,12 @@
-<view>广场</view>
+<view class="container">
+    <view class="tabs">
+        <view class="tab-item" data-index="{{index}}" wx:for="{{tabs}}" wx:key="index" bind:tap="handleTabChange">
+            <view class="tab-label {{currentTabIndex == index ? 'active-tab' : ''}}">
+                {{item}}
+            </view>
+            <view class="divider" wx:if="{{currentTabIndex == index}}"></view>
+        </view>
+    </view>
+    <view class="category"></view>
+    <view class="tab-panel"></view>
+</view>
