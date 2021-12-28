@@ -7,6 +7,18 @@
             <view class="divider" wx:if="{{currentTabIndex == index}}"></view>
         </view>
     </view>
-    <view class="category"></view>
+    <view class="category">
+        <swiper style="height : 150rpx;" display-multiple-items="{{2}}" next-margin="60rpx">
+            <swiper-item wx:for="{{categoryList}}" wx:key="index" data-id="{{item.id}}" bind:tap="handleCategoryChange">
+                <view class="category-swiper-item">
+                    <text class="category-name">{{item.name}}</text>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
     <view class="tab-panel"></view>
 </view>
+
+
+
+

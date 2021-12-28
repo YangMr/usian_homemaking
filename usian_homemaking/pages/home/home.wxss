@@ -6,11 +6,11 @@
 
 .tabs {
     display: flex;
-    padding : 30rpx 0;
-    height : 126rpx;
-    box-sizing : border-box;
+    padding: 30rpx 0;
+    height: 126rpx;
+    box-sizing: border-box;
     background-color: #fff;
-    align-items : center
+    align-items: center
 }
 
 .tab-item {
@@ -21,13 +21,13 @@
 }
 
 .tab-label {
-    color : #888888;
+    color: #888888;
     white-space: nowrap;
 }
 
-.active-tab{
-    color : #333333;
-    font-weight : bold;
+.active-tab {
+    color: #333333;
+    font-weight: bold;
 }
 
 .divider {
@@ -38,4 +38,20 @@
 }
 
 
+.category {
+    padding: 30rpx 0 30rpx 30rpx;
+}
 
+.category-swiper-item {
+    width: 300rpx;
+    height: 150rpx;
+    border-radius: 20rpx;
+    background-image: linear-gradient(to right, #e68d44, #eb6d59)
+}
+
+.category-name {
+    position: absolute;
+    top : 20rpx;
+    left : 20rpx;
+    color : #fff;
+}
