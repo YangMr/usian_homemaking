@@ -1,7 +1,6 @@
 Page({
     data: {
         tabs : ['全部服务','在提供','正在找'],
-        currentTabIndex : 0,
         categoryList : [
             {
                 "id": 1,
@@ -20,11 +19,12 @@ Page({
     onLoad: function (options) {
 
     },
-    handleTabChange : function (event){
-        let index = event.currentTarget.dataset.index
-        this.setData({
-            currentTabIndex : index
-        })
+    /**
+     * 获取到子组件传递给父组件的数据
+     * @param event
+     */
+    handleTabChange : function (event) {
+        let index = event.detail.index
     },
     handleCategoryChange : function(event){
         let id = event.currentTarget.dataset.id

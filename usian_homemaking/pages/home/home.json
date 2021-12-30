@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "i-tabs" : "../../components/tabs/tabs"
   }
 }

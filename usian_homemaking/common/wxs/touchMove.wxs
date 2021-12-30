@@ -1,0 +1,32 @@
+var touchStartX
+//手指触摸开始方法
+function handleTouchstart(event){
+    touchStartX = event.changedTouches[0].clientX
+}
+//手指触摸结束方法
+function handleTouchend(event,ownerInstance){
+    var touchEndX = event.changedTouches[0].clientX
+
+    //0 表示没有滑动
+    var direction = 0
+
+    //开始触摸的坐标 - 结束触摸的坐标    小于 0  从左向右滑动  1     大于0 从右向左滑动        等于0 表示没有滑动 -1
+    var distance = touchStartX - touchEndX
+
+    if(distance < 0 && distance < -70){
+        direction = -1
+    }
+
+    if(distance > 0 && distance > 70){
+        direction = 1
+    }
+
+    if(distance !== 0){
+        ownerInstance.callMethod("handleTouchMove",{direction : direction})
+    }
+}
+
+module.exports = {
+    handleTouchstart : handleTouchstart,
+    handleTouchend : handleTouchend
+}
