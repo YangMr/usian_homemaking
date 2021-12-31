@@ -5,6 +5,10 @@
 import Http from "../utils/http";
 
 class Service{
+    page = 1
+    count = 4
+    data = []
+    hasMoreData = true
     /**
      * 分页获取服务列表的数据
      * @param page
@@ -13,15 +17,30 @@ class Service{
      * @param type
      * @returns {Promise<*|undefined>}
      */
-    static getServiceList(page,count,category_id = null,type = ""){
-        return Http.request({
+     async getServiceList(category_id = null,type = ""){
+        const serviceList = await Http.request({
             url : "/v1/service/list",
             method : "GET",
             data : {
-                page,
-                count
+                page : this.page,
+                count : this.count,
+                category_id,
+                type
             }
         })
+        console.log(this.page)
+        this.data = this.data.concat(serviceList.data)
+        this.hasMoreData = !(this.page === serviceList.last_page)
+        this.page++
+        return this.data
+    }
+
+    reset(){
+        this.page = 1
+        this.count = 4
+        this.data = []
+        this.hasMoreData = true
+        return this
     }
 }
 

@@ -11,8 +11,10 @@
                 {{service.title}}
             </view>
             <view class="category">
-                <view class="iconfont icon-tag" style="font-size:40rpx; color : #f60;"></view>
-                {{service.category.name}}
+                <i-icon name="biaoqian" color="#f27013"></i-icon>
+                <view class="category-name">
+                    {{service.category.name}}
+                </view>
             </view>
         </view>
         <view class="row">
