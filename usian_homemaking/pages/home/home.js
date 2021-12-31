@@ -3,7 +3,8 @@ import Category from "../../model/category";
 Page({
     data: {
         tabs : ['全部服务','在提供','正在找'],
-        categoryList : []
+        categoryList : [],
+        serviceList : []
     },
     onLoad: function (options) {
         this._getServiceList()
@@ -12,6 +13,9 @@ Page({
     async _getServiceList(){
         const serviceList = await Service.getServiceList(1,10)
         console.log(serviceList)
+        this.setData({
+            serviceList : serviceList.data
+        })
     },
     async _getCategoryList(){
         const categoryList = await Category.getCategoryListWithAll()

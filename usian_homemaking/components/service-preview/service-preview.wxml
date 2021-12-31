@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="left">
+        <view class="type-tag">
+            {{service.type === 1 ? '在提供' : '正在找'}}
+        </view>
+        <image mode="aspectFill" class="cover-image" src="{{service.cover_image.path}}"></image>
+    </view>
+    <view class="right">
+        <view class="row">
+            <view class="service_title">
+                {{service.title}}
+            </view>
+            <view class="category">
+                <view class="iconfont icon-tag" style="font-size:40rpx; color : #f60;"></view>
+                {{service.category.name}}
+            </view>
+        </view>
+        <view class="row">
+            <view class="publisher">
+                <view class="publisher-avatar">
+                    <image class="publisher-avatar-image" src="{{service.publisher.avatar}}"></image>
+                </view>
+                <view class="publisher-nickname">
+                    {{service.publisher.nickname}}
+                </view>
+            </view>
+            <view class="score">
+                ★ {{service.score}}
+            </view>
+        </view>
+        <view class="row">
+            <view class="create-time">
+                {{service.create_time}}
+            </view>
+        </view>
+        <view class="row row-last">
+            <view class="price">
+                <text class="label">¥</text>
+                {{service.price}}
+            </view>
+            <view class="sales">
+                已售{{service.sales_volume}}
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<!--1. 封装icon组件 <i-icon name="" size="" color=""></i-icon>-->
+<!--2. 实现上拉加载、下拉刷新-->
+<!--3. 实现tabs服务切换的数据切换-->
+<!--4. 实现分类数据切换-->

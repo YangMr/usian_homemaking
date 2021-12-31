@@ -1,0 +1,118 @@
+@import "../../iconfont/iconfont.wxss";
+.container {
+    display: flex;
+    padding: 30rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    font-size: 20rpx;
+    box-sizing: border-box;
+    color : #888888;
+}
+
+.left {
+    position: relative;
+}
+
+.type-tag {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10rpx;
+    color: #fff;
+    background-color: #333;
+    opacity: 0.7;
+    width: max-content;
+    z-index: 2;
+    font-size: 14rpx;
+}
+
+.cover-image {
+    width: 180rpx;
+    height: 190rpx;
+    border-radius: 10rpx;
+}
+
+.right {
+    margin-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.service_title {
+    font-size: 32rpx;
+    min-width: 100rpx;
+    max-width: 340rpx;
+
+    /*多行文本溢出解决方案*/
+    text-overflow: ell ipsis;
+    display: -webkit-box;
+    /*重新定义-webkit私有盒模型*/
+    -webkit-box-orient: vertical;
+    /*内容之间的排列顺序，vertical垂直方向排列*/
+    -webkit-line-clamp: 3;
+    /*在第几行末尾显示省略号...*/
+    word-break: break-all;
+    overflow: hidden;
+
+    color : #333;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+}
+
+.publisher {
+    display: flex;
+    align-items: center;
+}
+
+.publisher-avatar {
+
+}
+
+.publisher-avatar-image {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+}
+
+.publisher-nickname {
+    margin-left: 10rpx;
+}
+
+.score {
+    color: #f60;
+    margin-left: 30rpx;
+}
+
+.create-time {
+    color: #888888;
+}
+
+.price {
+    font-size: 32rpx;
+    color: red;
+}
+
+.label {
+    font-size: 22rpx;
+}
+
+.sales {
+    color: #888888;
+}
+
+.row-last {
+    display: flex;
+    justify-content: space-between;
+}
+
