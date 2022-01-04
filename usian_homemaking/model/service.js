@@ -24,11 +24,10 @@ class Service{
             data : {
                 page : this.page,
                 count : this.count,
-                category_id,
-                type
+                category_id :category_id || "",
+                type : type || ""
             }
         })
-        console.log(this.page)
         this.data = this.data.concat(serviceList.data)
         this.hasMoreData = !(this.page === serviceList.last_page)
         this.page++

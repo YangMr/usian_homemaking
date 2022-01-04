@@ -1,18 +1,23 @@
 import Service from "../../model/service"
 const service = new Service()
 import Category from "../../model/category";
+import {throttle} from "../../utils/utils";
 Page({
     data: {
         tabs : ['全部服务','在提供','正在找'],
         categoryList : [],
-        serviceList : []
+        serviceList : [],
+        tabIndex : 0, //服务类型
+        categoryId : 0, //分类id
+        loading : true,  //用来显示或者隐藏骨架屏的状态
     },
-    onLoad: function (options) {
-        this._getServiceList()
-        this._getCategoryList()
+    onLoad: async function (options) {
+        await this._getServiceList()
+        await this._getCategoryList()
+        this.setData({loading: false})
     },
     async _getServiceList(){
-        const serviceList = await service.getServiceList()
+        const serviceList = await service.reset().getServiceList(this.data.categoryId, this.data.tabIndex)
         this.setData({
             serviceList : serviceList
         })
@@ -28,20 +33,21 @@ Page({
      * @param event
      */
     handleTabChange : function (event) {
-        let index = event.detail.index
+        this.data.tabIndex = event.detail.index
+        this._getServiceList()
     },
-    handleCategoryChange : function(event){
-        let id = event.currentTarget.dataset.id
-        console.log(id)
-    },
+    handleCategoryChange :throttle(function(event){
+        if(this.data.categoryId === event.currentTarget.dataset.id){
+            return
+        }
+        this.data.categoryId = event.currentTarget.dataset.id
+        this._getServiceList()
+    }),
     /**
      * 下拉刷新方法
      */
     async onPullDownRefresh(){
-        const serviceList = await service.reset().getServiceList()
-        this.setData({
-            serviceList
-        })
+        this._getServiceList()
         wx.stopPullDownRefresh()
     },
     /**

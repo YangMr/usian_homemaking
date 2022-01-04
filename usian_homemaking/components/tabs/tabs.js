@@ -1,3 +1,5 @@
+import {throttle} from "../../utils/utils";
+
 Component({
     options : {
         //开启多插槽
@@ -14,7 +16,7 @@ Component({
         currentTabIndex : 0
     },
     methods: {
-        handleTabChange : function (event){
+        handleTabChange : throttle(function (event){
             //获取当前所点击的元素的下标
             let index = event.currentTarget.dataset.index
 
@@ -25,7 +27,7 @@ Component({
 
             //将子组件所点击的元素下标传递给父组件
             this.triggerEvent("change",{index})
-        },
+        }),
         handleTouchMove : function(event){
             //获取滑动方法的枚举值
             let direction = event.direction
