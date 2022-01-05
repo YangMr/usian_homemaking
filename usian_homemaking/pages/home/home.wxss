@@ -1,6 +1,6 @@
 @import "./home.skeleton.wxss";
 .container {
-    height: 100%;
+    min-height: 100%;
 }
 
 .category {

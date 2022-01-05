@@ -52,6 +52,8 @@
     "i-tabs" : "/components/tabs/tabs",
     "i-service-preview" : "/components/service-preview/service-preview",
     "i-show-status" : "/components/show-status/show-status",
-    "i-avatar" : "/components/avatar/avatar"
+    "i-avatar" : "/components/avatar/avatar",
+    "i-service-rating" : "/components/service-rating/service-rating",
+    "i-rating" : "/components/rating/rating"
   }
 }

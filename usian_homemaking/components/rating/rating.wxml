@@ -1,0 +1,5 @@
+<view class="container">
+    <view class="item" wx:for="{{count}}" wx:key="index">
+        <i-icon name="{{icon}}" size="{{size}}" color="{{index < selected ? selectedColor : defaultColor}}"></i-icon>
+    </view>
+</view>

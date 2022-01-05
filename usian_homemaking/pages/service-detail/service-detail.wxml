@@ -42,6 +42,13 @@
         <view>服务状态</view>
         <view>{{statusText.convert(service.status)}}</view>
     </view>
-    <view class="service-rating"></view>
+    <view class="service-rating">
+        <view class="service-rating-title">历史评价</view>
+        <view class="service-rating-list">
+            <view class="service-rating-item" wx:for="{{ratingList}}" wx:key="index">
+                <i-service-rating rating="{{item}}"></i-service-rating>
+            </view>
+        </view>
+    </view>
     <view class="action-bar"></view>
 </view>
