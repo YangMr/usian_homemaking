@@ -1,0 +1,47 @@
+<wxs src="/common/wxs/status-text.wxs" module="statusText"></wxs>
+<view class="container">
+    <view class="service-info">
+        <view class="cover-image">
+            <image src="{{service.cover_image.path}}" mode="widthFix"></image>
+        </view>
+        <view class="row">
+            <view class="title">{{service.title}}</view>
+            <view class="category">
+                <i-icon name="biaoqian" colo="#f27013"></i-icon>
+                <text class="tag-text">{{service.category.name}}</text>
+            </view>
+        </view>
+        <view class="row">
+            <view class="publisher">
+                <i-avatar size="60" fontSize="28" src="{{service.publisher.avatar}}" text="{{service.publisher.nickname}}"></i-avatar>
+            </view>
+            <view class="score">
+                ★ {{service.score || 0}}
+            </view>
+        </view>
+        <view class="row">
+            <view class="create-time">
+                {{service.create_time}}
+            </view>
+        </view>
+        <view class="row row-space-between">
+            <view class="price">
+                <text class="label">¥</text>{{service.price}}
+            </view>
+            <view class="sales-volume">
+                已售{{service.sales_volume}}
+            </view>
+        </view>
+        <view class="row">
+            <view class="description">
+                {{service.description}}
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{isPublisher}}" class="service-status">
+        <view>服务状态</view>
+        <view>{{statusText.convert(service.status)}}</view>
+    </view>
+    <view class="service-rating"></view>
+    <view class="action-bar"></view>
+</view>

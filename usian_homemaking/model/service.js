@@ -17,7 +17,7 @@ class Service{
      * @param type
      * @returns {Promise<*|undefined>}
      */
-     async getServiceList(category_id = null,type = ""){
+    async getServiceList(category_id = null,type = ""){
         const serviceList = await Http.request({
             url : "/v1/service/list",
             method : "GET",
@@ -32,6 +32,18 @@ class Service{
         this.hasMoreData = !(this.page === serviceList.last_page)
         this.page++
         return this.data
+    }
+
+    /**
+     * 获取服务详情的数据
+     * @param serviceId
+     * @returns {Promise<*|undefined>}
+     */
+    static getService(serviceId){
+        return Http.request({
+            url : `/v1/service/${serviceId}`,
+            method : "GET"
+        })
     }
 
     reset(){

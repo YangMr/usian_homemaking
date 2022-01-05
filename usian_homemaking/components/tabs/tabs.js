@@ -53,7 +53,7 @@ Component({
             }
 
             //调用设置选中下标的方法
-            this.handleTabChange(customEvent)
+            // this.handleTabChange(customEvent)
 
         }
     }
