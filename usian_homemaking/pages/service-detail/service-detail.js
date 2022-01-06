@@ -3,6 +3,8 @@ import User from "../../model/user"
 import Rating from "../../model/rating"
 import serviceType from "../../enum/service-type";
 import serviceStatus from "../../enum/service-status";
+import {getEventParams} from "../../utils/utils"
+import serviceAction from "../../enum/service-action";
 const rating = new Rating()
 Page({
     data: {
@@ -30,6 +32,53 @@ Page({
     _getServiceRatingList : async function (){
         const ratingList = await rating.reset()._getServiceRatingList(this.data.serviceId)
         this.setData({ratingList})
+    },
+    handleUpdateStatus :async function (event){
+
+        const action = getEventParams(event,'action')
+
+        const content = this._generateModelContent(action)
+
+        const res = await wx.showModal({
+            title : "注意",
+            content
+        })
+
+        if(!res.confirm){
+            return
+        }
+
+        await Service.updateServiceStatus(this.data.serviceId,action)
+        await this._getService()
+
+        console.log(res)
+
+    },
+    handleEditService : function (){
+        console.log("2")
+    },
+    handleChat : function (){
+        console.log("3")
+    },
+    handleOrder : function (){
+        console.log("4")
+    },
+    _generateModelContent(action){
+        let content
+
+        switch (action){
+            case serviceAction.PUBLISH:
+                content = ""
+                break
+            case serviceAction.PAUSE :
+                content = "发布后即可在广场页面中被浏览到，是否确认发布?"
+                break
+            case serviceAction.CANCEL :
+                content = "取消后不可恢复，需重新发布并提交审核，已关联服务的订单且订单状态正在进行中的，仍需正常履约，是否确认取消该服务?"
+                break
+        }
+
+        return content
     },
     /**
      * 检测当前登录的用户是否是当前服务详情的发布者，如果是的话，设置isPublisher true 否则 为 false

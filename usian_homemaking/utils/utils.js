@@ -23,4 +23,24 @@ function throttle(callback,duration = 500) {
     }
 }
 
-export {throttle}
+/**
+ * 获取自定义属性的值
+ * @param {Object} event
+ * @param {String} target
+ * @returns {*}
+ */
+function getDataSet(event,target){
+   return event.currentTarget.dataset[target]
+}
+
+/**
+ * 获取自定义事件的参数
+ * @param {Object} event
+ * @param {String} target
+ * @returns {*}
+ */
+function getEventParams(event,target){
+    return event.detail[target]
+}
+
+export {throttle,getDataSet,getEventParams}

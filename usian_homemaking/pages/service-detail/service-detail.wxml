@@ -44,7 +44,6 @@
         <view>服务状态</view>
         <view>{{statusText.convert(service.status)}}</view>
     </view>
-<!--    发布服务 发布者  在提供  寻找服务 消费者 正在找-->
     <view  class="service-rating">
         <view wx:if="{{service.type == serviceTypeEnum.PROVIDE}}" class="service-rating-title">历史评价</view>
         <view wx:if="{{ ratingList.length > 0}}" class="service-rating-list">
@@ -58,16 +57,8 @@
     </view>
     <view class="action-bar">
         <view class="action-bar-item">
-           <block wx:if="{{isPublisher}}">
-                <button wx:if="{{service.status !== serviceStatusEnum.CANCELED && service.status !== serviceStatusEnum.OFF_SHELVES}}">取消服务</button>
-                <button wx:if="{{service.status !== serviceStatusEnum.CANCELED && service.status !== serviceStatusEnum.OFF_SHELVES}}">修改服务</button>
-                <button wx:if="{{service.status === serviceStatusEnum.PUBLISHED}}">暂停服务</button>
-                <button wx:if="{{service.status === serviceStatusEnum.UNPUBLISHED}}">发布</button>
-           </block>
-           <block wx:if="{{!isPublisher}}">
-                <button>联系对方</button>
-                <button wx:if="{{service.type !== serviceTypeEnum.SEEK}}">预约服务</button>
-           </block>
+            <i-publisher-action bind:update="handleUpdateStatus" bind:edit="handleEditService" wx:if="{{isPublisher}}" service="{{service}}"></i-publisher-action>
+            <i-consumer-action bind:chat="handleChat" bind:order="handleOrder" wx:if="{{!isPublisher}}" service="{{service}}"></i-consumer-action>
         </view>
         <i-safe-area area="bottom"></i-safe-area>
     </view>

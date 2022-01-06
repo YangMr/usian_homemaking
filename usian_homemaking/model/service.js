@@ -44,6 +44,22 @@ class Service extends Base{
         })
     }
 
+    /**
+     * 更新服务的状态
+     * @param {Number} serviceId
+     * @param {Number} action
+     * @returns {Promise<*|undefined>}
+     */
+    static updateServiceStatus(serviceId,action){
+        return Http.request({
+            url : `/v1/service/${serviceId}`,
+            method : "POST",
+            data : {
+                action
+            }
+        })
+    }
+
 }
 
 export default Service
