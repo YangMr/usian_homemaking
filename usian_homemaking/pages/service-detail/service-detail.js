@@ -1,18 +1,24 @@
 import Service from "../../model/service"
 import User from "../../model/user"
 import Rating from "../../model/rating"
+import serviceType from "../../enum/service-type";
+import serviceStatus from "../../enum/service-status";
 const rating = new Rating()
 Page({
     data: {
         service : null,
         serviceId : null,
         isPublisher : false,
-        ratingList : []
+        ratingList : [],
+        loading : true,
+        serviceTypeEnum : serviceType,
+        serviceStatusEnum : serviceStatus
     },
     onLoad: async function (options) {
         this.data.serviceId = options.service_id
         await this._getService()
         await this._getServiceRatingList()
+        this.setData({loading : false})
         this._checkRole()
     },
     _getService : async function (){

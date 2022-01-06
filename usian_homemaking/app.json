@@ -54,6 +54,7 @@
     "i-show-status" : "/components/show-status/show-status",
     "i-avatar" : "/components/avatar/avatar",
     "i-service-rating" : "/components/service-rating/service-rating",
-    "i-rating" : "/components/rating/rating"
+    "i-rating" : "/components/rating/rating",
+    "i-safe-area" : "/components/safe-area/safe-area"
   }
 }

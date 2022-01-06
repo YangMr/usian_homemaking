@@ -1,3 +1,4 @@
+@import "./service-detail.skeleton.wxss";
 .container {
     font-size: 28rpx;
     box-sizing: border-box;
@@ -78,6 +79,11 @@
     align-items: center;
 }
 
+.service-rating{
+    min-height : 500rpx;
+    margin-bottom: 120rpx;
+}
+
 .service-rating-title{
     border-bottom: 1rpx solid #efefef;
     padding-bottom: 20rpx;
@@ -91,4 +97,22 @@
     margin-bottom: 30rpx;
     padding-bottom: 30rpx;
     border-bottom: 1px solid #efefef;
+}
+
+.action-bar{
+    background-color: #ffffff;
+    padding : 30rpx;
+    width: 100%;
+    border-top: 1px solid #efefef;
+    box-sizing: border-box;
+    position: fixed;
+    bottom : 0;
+    z-index : 2;
+}
+
+.action-bar-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
 }
