@@ -1,6 +1,7 @@
 import APIConfig from "../config/api";
 import {wxToPromise} from "./wx";
 import exceptionMessage from "../config/exception-message";
+import cache from "../enum/cache";
 
 /**
  * @author YangLing
@@ -13,6 +14,9 @@ class Http{
              url : APIConfig.baseUrl + url,
              method,
              data,
+             header : {
+                 token : wx.getStorageSync(cache.TOKEN)
+             }
         })
 
         //TODO 请求成功

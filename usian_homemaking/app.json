@@ -4,7 +4,8 @@
     "pages/message/message",
     "pages/my/my",
     "pages/publish/publish",
-    "pages/service-detail/service-detail"
+    "pages/service-detail/service-detail",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "dark",

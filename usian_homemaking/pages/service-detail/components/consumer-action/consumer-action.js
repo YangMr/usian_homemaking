@@ -1,11 +1,13 @@
+import behavior from "../behavior";
+import serviceType from "../../../../enum/service-type";
+
 Component({
+    behaviors : [behavior],
     properties: {
-        service : {
-            type : Object
-        }
+
     },
     data: {
-
+        serviceTypeEnum : serviceType
     },
     methods: {
         handleChat: function (){
