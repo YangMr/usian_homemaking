@@ -5,7 +5,10 @@
     "pages/my/my",
     "pages/publish/publish",
     "pages/service-detail/service-detail",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/conversation/conversation",
+    "pages/order/order",
+    "pages/service-edit/service-edit"
   ],
   "window": {
     "backgroundTextStyle": "dark",

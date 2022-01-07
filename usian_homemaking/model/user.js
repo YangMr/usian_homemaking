@@ -20,11 +20,15 @@ class User{
         wx.setStorageSync(cache.TOKEN,res)
     }
 
-    static async updateUserInfo(data){
+
+    static async updateUserInfo(userInfo){
         const res = await Http.request({
             url : '/v1/user',
             method : 'PUT',
-            data
+            data : {
+                nickname : userInfo.nickName,
+                avatar : userInfo.avatarUrl
+            }
         })
         wx.setStorageSync(cache.USERINFO,res)
     }
