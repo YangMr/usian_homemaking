@@ -1,0 +1,12 @@
+<!--常规的按钮-->
+<view wx:if="{{!special}}" class="i-button i-button-class {{size}}  shape-{{shape}} {{plain ? 'plain' : ''}}" style="{{ width ? 'width:' + width + 'rpx;' : '' }}{{height ? 'height:' + height + 'rpx;' : ''}}{{height ? 'line-height:' + height + 'rpx' : ''}}{{'background-color:' + bgColor + ';'}}{{border?'border: 1px solid #efefef;' : ''}}{{radius ? 'border-radius' + radius + ';' : ''}}{{fontColor ? 'color:' + fontColor + ';' : ''}}">
+    <i-icon wx:if="{{name}}" name="{{name}}" color="{{iconColor}}" style="margin-right:10rpx;"></i-icon>
+    <slot></slot>
+</view>
+
+<!--特殊的按钮-->
+<view wx:else class="i-button-special i-button-special-class"
+      style="{{fontColor?'color:'+fontColor+';':''}}">
+    <i-icon wx:if="{{name}}" name="{{name}}" color="{{iconColor}}" style="margin-right:10rpx"/>
+    <slot></slot>
+</view>

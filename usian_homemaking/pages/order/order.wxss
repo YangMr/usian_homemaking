@@ -1,0 +1,32 @@
+.address{
+    display: flex;
+    align-items: center;
+    padding:30rpx;
+    background-color:  #fcedc1;
+    min-height : 130rpx;
+}
+.address-info {
+    margin-left: 20rpx;
+}
+.contact-info {
+    margin-top: 10rpx;
+    color: #888888;
+}
+
+.notice-text {
+    margin-left: 20rpx;
+    font-size : 35rpx;
+}
+.service-card{
+    margin-top: 30rpx;
+}
+.action-bar{
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    padding:30rpx;
+    position: fixed;
+    bottom : 0;
+    z-index : 2;
+    text-align: right;
+}

@@ -1,1 +1,4 @@
 @import "../index.wxss";
+.a{
+    /*background-color: red!important;*/
+}

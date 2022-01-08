@@ -1,7 +1,7 @@
 .container {
     display: flex;
     padding: 30rpx;
-    border-radius: 10rpx;
+    border-radius: 20rpx;
     background-color: #fff;
     font-size: 20rpx;
     box-sizing: border-box;

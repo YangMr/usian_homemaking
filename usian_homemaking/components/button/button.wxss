@@ -1,0 +1,48 @@
+.i-button{
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 28rpx;
+    overflow: hidden;
+    justify-content: center;
+}
+.plain{
+    background-color: transparent !important;
+    border: solid 1px #f3d066;
+    color: #f3d066;
+}
+.mini{
+    padding:12rpx 24rpx;
+    width: 80rpx;
+    font-size : 24rpx;
+}
+
+.medium{
+    width: 100rpx;
+    padding: 24rpx 48rpx;
+}
+
+.i-button-special {
+    background-color: transparent;
+    box-sizing: border-box;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.long{
+    width: 500rpx;
+    padding: 24rpx 48rpx;
+}
+
+.shape-square{
+    border-radius: 0;
+}
+.shape-circle{
+    border-radius: 10rpx;
+}
+.shape-semicircle{
+    border-radius: 50rpx;
+}
