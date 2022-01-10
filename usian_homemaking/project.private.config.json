@@ -29,6 +29,12 @@
           "pathName": "pages/order/order",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "order-success",
+          "pathName": "pages/order-success/order-success",
+          "query": "",
+          "scene": null
         }
       ]
     }

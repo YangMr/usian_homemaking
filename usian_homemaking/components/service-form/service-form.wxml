@@ -1,0 +1,30 @@
+<view class="container">
+    <mp-form>
+        <mp-cells>
+            <mp-cell  title="发布类型">
+
+            </mp-cell>
+            <mp-cell title="标题">
+
+            </mp-cell>
+            <mp-cell title="所属分类">
+
+            </mp-cell>
+            <mp-cell title="封面图">
+
+            </mp-cell>
+            <mp-cell title="服务描述">
+
+            </mp-cell>
+            <mp-cell title="开始日期">
+
+            </mp-cell>
+            <mp-cell title="结束日期">
+
+            </mp-cell>
+            <mp-cell title="价格">
+
+            </mp-cell>
+        </mp-cells>
+    </mp-form>
+</view>

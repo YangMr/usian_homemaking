@@ -9,7 +9,8 @@
     "pages/conversation/conversation",
     "pages/order/order",
     "pages/service-edit/service-edit",
-    "pages/order-success/order-success"
+    "pages/order-success/order-success",
+    "pages/my-order/my-order"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -49,7 +50,6 @@
       }
     ]
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents" : {
@@ -61,6 +61,14 @@
     "i-service-rating" : "/components/service-rating/service-rating",
     "i-rating" : "/components/rating/rating",
     "i-safe-area" : "/components/safe-area/safe-area",
-    "i-button" : "/components/button/button"
+    "i-button" : "/components/button/button",
+    "mp-msg": "weui-miniprogram/msg/msg",
+    "van-button": "@vant/weapp/button/index",
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell"
+  },
+  "useExtendedLib": {
+    "weui": true
   }
 }
