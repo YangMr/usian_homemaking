@@ -35,6 +35,12 @@
           "pathName": "pages/order-success/order-success",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "publish",
+          "pathName": "pages/publish/publish",
+          "query": "",
+          "scene": null
         }
       ]
     }

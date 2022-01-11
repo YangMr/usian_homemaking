@@ -1,0 +1,16 @@
+.picker-placeholder {
+    color: #808080;
+}
+
+.desc-textarea {
+    width: 100%;
+}
+
+.form-floor {
+    margin-top: 60rpx;
+    display: flex;
+    align-items: center;
+    padding-bottom: 100rpx;
+    justify-content: center;
+    box-sizing: border-box;
+}
