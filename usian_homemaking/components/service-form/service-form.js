@@ -10,7 +10,6 @@ Component({
         }
     },
     data: {
-        files : [],
         typeList: [
             {
                 id: serviceType.PROVIDE,
@@ -45,7 +44,6 @@ Component({
     },
     methods: {
         _init: async function () {
-
             const categoryList = await Category.getCategoryList()
             const typePickerIndex = this.data.typeList.findIndex(item => item.id === this.data.form.type)
             const categoryPickerIndex = categoryList.findIndex(item => item.id === this.data.form.category_id)
@@ -107,13 +105,6 @@ Component({
             this.setData({
                 ['formData.end_date'] : endDate
             })
-        },
-        handleSelectImage : function (event){
-            console.log("123")
-            console.log(event)
-        },
-        handleUploadImage : function (event){
-            console.log("456")
         }
     }
 });

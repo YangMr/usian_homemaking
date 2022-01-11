@@ -1,67 +1,69 @@
 <mp-form>
-    <mp-cell title="发布类型">
-        <picker range="{{typeList}}" range-key="name" bind:change="handlePickerChange">
-            <view wx:if="{{typePickerIndex !== null}}">
-                {{typeList[typePickerIndex].name}}
-            </view>
-            <view wx:else class="picker-placeholder">
-                请选择发布类型
-            </view>
-        </picker>
-    </mp-cell>
+    <mp-cells>
+        <mp-cell title="发布类型">
+            <picker range="{{typeList}}" range-key="name" bind:change="handlePickerChange">
+                <view wx:if="{{typePickerIndex !== null}}">
+                    {{typeList[typePickerIndex].name}}
+                </view>
+                <view wx:else class="picker-placeholder">
+                    请选择发布类型
+                </view>
+            </picker>
+        </mp-cell>
 
-    <mp-cell title="标题">
-        <input value="{{formData.title}}" data-field="title" bind:input="handleInput" placeholder="内容长度不少与5个字符" />
-    </mp-cell>
+        <mp-cell title="标题">
+            <input value="{{formData.title}}" data-field="title" bind:input="handleInput" placeholder="内容长度不少与5个字符" />
+        </mp-cell>
 
-    <mp-cell title="所属分类">
-        <picker range="{{categoryList}}" range-key="name" bind:change="handleCategoryChange">
-            <view wx:if="{{categoryPickerIndex !== null}}">
-                {{categoryList[categoryPickerIndex].name}}
-            </view>
-            <view wx:else class="picker-placeholder">
-                请选择分类
-            </view>
-        </picker>
-    </mp-cell>
+        <mp-cell title="所属分类">
+            <picker range="{{categoryList}}" range-key="name" bind:change="handleCategoryChange">
+                <view wx:if="{{categoryPickerIndex !== null}}">
+                    {{categoryList[categoryPickerIndex].name}}
+                </view>
+                <view wx:else class="picker-placeholder">
+                    请选择分类
+                </view>
+            </picker>
+        </mp-cell>
 
-    <mp-cell title="封面图">
-        <mp-uploader title="" source-type="{{['album', 'camera']}}" size-type="{{['original', 'compressed']}}" bindselect="handleSelectImage" bindsuccess="handleUploadImage" delete max-size="1" files="{{files}}" max-count="5"></mp-uploader>
-    </mp-cell>
+        <mp-cell title="封面图">
+            <i-image-uploader size="5" sourceType="{{['album']}}" sizeType="{{['original']}}"  maxCount="{{4}}"></i-image-uploader>
+        </mp-cell>
 
-    <mp-cell title="服务描述">
-        <textarea class="desc-textarea" placeholder="必填，内容长度不少于20个字符" value="{{formData.description}}" bind:input="handleInput" data-field="description"></textarea>
-    </mp-cell>
+        <mp-cell title="服务描述">
+            <textarea class="desc-textarea" placeholder="必填，内容长度不少于20个字符" value="{{formData.description}}" bind:input="handleInput" data-field="description"></textarea>
+        </mp-cell>
 
-    <mp-cell title="提供地点">
-        <switch checked="{{formData.designated_place}}" bind:change="handleSwitchChange"></switch>
-    </mp-cell>
+        <mp-cell title="提供地点">
+            <switch checked="{{formData.designated_place}}" bind:change="handleSwitchChange"></switch>
+        </mp-cell>
 
-    <mp-cell title="开始日期">
-        <picker mode="date" bind:change="handleBeginDateChange">
-            <view wx:if="{{formData.begin_date}}">
-                {{formData.begin_date}}
-            </view>
-            <view wx:else class="picker-placeholder">
-                服务内容有效期开始日期
-            </view>
-        </picker>
-    </mp-cell>
+        <mp-cell title="开始日期">
+            <picker mode="date" bind:change="handleBeginDateChange">
+                <view wx:if="{{formData.begin_date}}">
+                    {{formData.begin_date}}
+                </view>
+                <view wx:else class="picker-placeholder">
+                    服务内容有效期开始日期
+                </view>
+            </picker>
+        </mp-cell>
 
-    <mp-cell title="结束日期">
-        <picker mode="date" bind:change="handleEndDateChange">
-            <view wx:if="{{formData.end_date}}">
-                {{formData.end_date}}
-            </view>
-            <view wx:else class="picker-placeholder">
-                服务内容有效期结束日期
-            </view>
-        </picker>
-    </mp-cell>
+        <mp-cell title="结束日期">
+            <picker mode="date" bind:change="handleEndDateChange">
+                <view wx:if="{{formData.end_date}}">
+                    {{formData.end_date}}
+                </view>
+                <view wx:else class="picker-placeholder">
+                    服务内容有效期结束日期
+                </view>
+            </picker>
+        </mp-cell>
 
-    <mp-cell title="价格">
-        <input value="{{formData.price}}" bind:input="handleInput" data-field="price" placeholder="服务价格,不少于1" />
-    </mp-cell>
+        <mp-cell title="价格">
+            <input value="{{formData.price}}" bind:input="handleInput" data-field="price" placeholder="服务价格,不少于1" />
+        </mp-cell>
+    </mp-cells>
 
     <view class="form-floor">
         <i-button size="long" bind:tap="handleSubmit" shape="circle">提交审核</i-button>
