@@ -69,6 +69,7 @@
     "mp-cells": "weui-miniprogram/cells/cells",
     "mp-cell": "weui-miniprogram/cell/cell",
     "mp-uploader": "weui-miniprogram/uploader/uploader",
+    "mp-toptips": "weui-miniprogram/toptips/toptips",
     "i-image-uploader" : "/components/image-uploader/image-uploader"
   },
   "useExtendedLib": {

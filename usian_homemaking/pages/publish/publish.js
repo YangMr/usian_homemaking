@@ -19,6 +19,10 @@ Page({
 
     },
 
+    onShow : function(){
+        this._resetForm()
+    },
+
     handleSubmit : async function (event){
 
         const res = await wx.showModal({
@@ -37,7 +41,7 @@ Page({
 
         try{
             await Service.publishService(formData)
-            this._resetForm()
+
             wx.navigateTo({
                 url : "/pages/publish-success/publish-success"
             })
