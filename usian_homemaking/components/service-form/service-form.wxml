@@ -27,7 +27,7 @@
         </mp-cell>
 
         <mp-cell title="封面图">
-            <i-image-uploader size="5" sourceType="{{['album']}}" sizeType="{{['original']}}"  maxCount="{{4}}"></i-image-uploader>
+            <i-image-uploader files="{{files}}" bind:uploadsuccess="handleUploadSuccess" size="5" sourceType="{{['album']}}" sizeType="{{['original']}}"  maxCount="{{4}}"></i-image-uploader>
         </mp-cell>
 
         <mp-cell title="服务描述">

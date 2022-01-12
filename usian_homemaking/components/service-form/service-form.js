@@ -36,6 +36,15 @@ Component({
         typePickerIndex: null,
         categoryPickerIndex: null
     },
+    observers : {
+        'form' : function (value){
+            console.log(value)
+            this.setData({
+                formData : value
+            })
+            this._init()
+        }
+    },
     lifetimes: {
         attached: function () {
             // 在组件实例进入页面节点树时执行
@@ -51,11 +60,12 @@ Component({
                 categoryList,
                 typePickerIndex: typePickerIndex !== -1 ? typePickerIndex : null,
                 categoryPickerIndex : categoryPickerIndex !== -1 ? categoryPickerIndex : null,
+                files : this.data.form.cover_image ? [this.data.form.cover_image] : [],
                 formData: {
                     type: this.data.form.type,
                     title: this.data.form.title,
                     category_id: this.data.form.category_id,
-                    cover_image_id: this.data.form.cover_image_id,
+                    cover_image_id:  this.data.form.cover_image ? this.data.form.cover_image.id : null,
                     designated_place: this.data.form.designated_place,
                     description: this.data.form.description,
                     begin_date: this.data.form.begin_date,
@@ -65,7 +75,7 @@ Component({
             })
         },
         handleSubmit : function (){
-            console.log(this.data.formData)
+            this.triggerEvent("submit",{formData : this.data.formData})
         },
         handlePickerChange: function (event) {
             const typePickerIndex = getEventParams(event, "value")
@@ -104,6 +114,12 @@ Component({
             const endDate = getEventParams(event,'value')
             this.setData({
                 ['formData.end_date'] : endDate
+            })
+        },
+        handleUploadSuccess : function (event){
+            const id = event.detail.files[0].id
+            this.setData({
+                ['formData.cover_image_id'] : id
             })
         }
     }

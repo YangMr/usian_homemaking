@@ -5,6 +5,7 @@
 
 const exceptionMessage = {
     // 10000 : "发生错误"
+    "-1" : "网络发生错误"
 }
 
 export default exceptionMessage

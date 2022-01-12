@@ -1,8 +1,9 @@
 <view class="container">
+
     <!--上传成功的图片-->
     <view class="uploader-item" wx:for="{{_files}}" wx:key="index" wx:if="{{_files.length > 0 && _files.length < 5}}">
             <!--上传成功的图片-->
-        <image bind:tap="handlePreview" data-index="{{index}}" wx:if="{{item.status !== uploadStatusEnum.ERROR}}" class="display-image"   mode="aspectFill" src="{{item.url}}"></image>
+        <image bind:tap="handlePreview" data-index="{{index}}" wx:if="{{item.status !== uploadStatusEnum.ERROR}}" class="display-image"   mode="aspectFill" src="{{item.path}}"></image>
             <!--定义正在上传的图标-->
         <view class="icon-uploading" wx:if="{{item.status === uploadStatusEnum.UPLOADING}}">
             <i-icon name="upload" size="60" color="#fff"></i-icon>

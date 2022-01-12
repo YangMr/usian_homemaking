@@ -10,7 +10,8 @@
     "pages/order/order",
     "pages/service-edit/service-edit",
     "pages/order-success/order-success",
-    "pages/my-order/my-order"
+    "pages/my-order/my-order",
+    "pages/publish-success/publish-success"
   ],
   "window": {
     "backgroundTextStyle": "dark",

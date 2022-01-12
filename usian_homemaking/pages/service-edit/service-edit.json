@@ -1,4 +1,6 @@
 {
+  "navigationBarTitleText": "修改服务",
   "usingComponents": {
+    "i-service-form" : "/components/service-form/service-form"
   }
 }

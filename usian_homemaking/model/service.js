@@ -60,6 +60,32 @@ class Service extends Base{
         })
     }
 
+    /**
+     * 创建服务
+     * @param serviceData
+     * @returns {Promise<*>}
+     */
+    static publishService(serviceData){
+        return Http.request({
+            url : '/v1/service',
+            method : 'POST',
+            data : serviceData
+        })
+    }
+
+    /**
+     * 编辑服务接口
+     * @param serviceId
+     * @param serviceData
+     * @returns {Promise<*>}
+     */
+    static editService (serviceId,serviceData){
+        return Http.request({
+            url : `/v1/service/${serviceId}`,
+            method : 'PUT',
+            data : serviceData
+        })
+    }
 }
 
 export default Service

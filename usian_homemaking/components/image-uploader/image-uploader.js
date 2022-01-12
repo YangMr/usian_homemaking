@@ -1,7 +1,13 @@
 import {getDataSet} from "../../utils/utils";
+import FileUploader from "../../utils/http-uploader";
 
 Component({
     properties: {
+        //默认要展示图片
+        files : {
+            type : Array,
+            value : []
+        },
         //设置上传图片的个数
         maxCount : {
             type : Number,
@@ -24,24 +30,33 @@ Component({
         }
     },
     data: {
-        _files : [
-            {
-                url : 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-                status : 2
-            },
-            {
-                url : 'https://img2.baidu.com/it/u=888246215,1140292536&fm=253&fmt=auto&app=138&f=JPEG?w=580&h=326',
-                status : 2
-            },
-            {
-                url : 'https://img2.baidu.com/it/u=1839151878,1753507430&fm=253&fmt=auto&app=138&f=JPEG?w=480&h=446',
-                status : 2
-            }
-        ],
+        _files : [],
         uploadStatusEnum : {
             UPLOADING : 1,
             SUCCESS : 2,
             ERROR : 0
+        }
+    },
+    observers : {
+        files : function (value){
+            // if(!value.length){
+            //     return
+            // }
+            console.log("value",value)
+            const _files = []
+            value.forEach((item, index) => {
+                const file = {
+                    id: item.id,
+                    key: index + '',
+                    path: item.path,
+                    status: this.data.uploadStatusEnum.SUCCESS,
+                    error: ''
+                }
+                _files.push(file)
+            })
+            this.setData({
+                _files
+            })
         }
     },
     methods: {
@@ -84,7 +99,8 @@ Component({
             //筛选出正在上传中的图片
             const uploadTask = _files.filter(item=> item.status === this.data.uploadStatusEnum.UPLOADING)
 
-            wx.uploadFile()
+            //将正在上传中的图片上传到服务器（后台）
+            this._executeUpload(uploadTask)
         },
         //处理上传的图片的业务： 1. 判断上传图片的大小
         _filesFilter : function (tempFile){
@@ -99,15 +115,39 @@ Component({
                 const length = this.data._files.length
 
                 res.push({
-                    url : item.path,
+                    path : item.path,
                     key : index + length + '',
                     status : error ?  this.data.uploadStatusEnum.ERROR :  this.data.uploadStatusEnum.UPLOADING,
                     error : ''
                 })
             })
-
             return this.data._files.concat(res)
+        },
+        //上传图片到服务器
+        _executeUpload :async function (uploadTask){
+            const success = []
+            // file  {file : '地址', key , status ,error}    uploadTask
+            for(let file of uploadTask){
+                try {
+                    const res = await FileUploader.upload(file.path,file.key)
+                    file.id = res[0].id
+                    file.status = this.data.uploadStatusEnum.SUCCESS
+                    this.data._files[file.key] = file
+                    success.push(file)
+                }catch (e) {
+                    file.status= this.data.uploadStatusEnum.ERROR
+                    file.error = e
+                    this.triggerEvent("uploadfail",{file,error : e})
+                }
 
+                this.setData({
+                    _files : this.data._files
+                })
+
+                if(success.length > 0){
+                    this.triggerEvent("uploadsuccess",{files : success})
+                }
+            }
         }
     }
 });
