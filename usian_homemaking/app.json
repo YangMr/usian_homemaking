@@ -70,7 +70,10 @@
     "mp-cell": "weui-miniprogram/cell/cell",
     "mp-uploader": "weui-miniprogram/uploader/uploader",
     "mp-toptips": "weui-miniprogram/toptips/toptips",
-    "i-image-uploader" : "/components/image-uploader/image-uploader"
+    "i-image-uploader" : "/components/image-uploader/image-uploader",
+    "i-grid" : "/components/grid/grid",
+    "i-grid-item" : "/components/grid-item/grid-item",
+    "mp-badge": "weui-miniprogram/badge/badge"
   },
   "useExtendedLib": {
     "weui": true

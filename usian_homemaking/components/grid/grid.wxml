@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="header" wx:if="{{title || extend}}">
+        <view wx:if="{{title}}" class="title">{{title}}</view>
+        <view wx:if="{{extend}}" class="extend" bind:tap="handleExtend">{{extend}}</view>
+    </view>
+    <view wx:for="{{gridItems}}" style="width : {{100 / rowNum }}%" wx:key="index">
+        <slot name="{{item.index}}"></slot>
+    </view>
+</view>

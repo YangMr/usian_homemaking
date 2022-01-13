@@ -1,0 +1,4 @@
+<view class="container">
+    <i-icon wx:if="{{icon}}" color="#333333" name="{{icon}}" size="{{iconSize}}"></i-icon>
+    <text>{{text}}</text>
+</view>

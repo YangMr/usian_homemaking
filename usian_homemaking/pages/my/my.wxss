@@ -1,0 +1,17 @@
+.container{
+    padding-bottom: 300rpx;
+}
+.header{
+    display: flex;
+    align-items: center;
+    height: 240rpx;
+    background-color:  #f3d066;
+    box-sizing: border-box;
+    padding:30rpx;
+}
+.main{
+    padding: 0 30rpx;
+}
+.grid-container{
+    margin-top: 30rpx;
+}

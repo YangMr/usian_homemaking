@@ -1,1 +1,28 @@
-<view>个人中心</view>
+<view class="container">
+    <view class="header">
+        <i-avatar src="{{userInfo.avatar}}" bind:tap="handleToLogin" shape="circle" fontSize="34" text="{{userInfo.nickname}}"></i-avatar>
+    </view>
+    <view class="main">
+        <view class="grid-container">
+            <i-grid title="{{appointWithMeGrid.title}}" rowNum="{{appointWithMeGrid.rowNum}}" extend="{{appointWithMeGrid.extend}}">
+                <i-grid-item wx:for="{{appointWithMeGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+            </i-grid>
+        </view>
+        <view class="grid-container">
+            <i-grid title="{{myAppointGrid.title}}" rowNum="{{myAppointGrid.rowNum}}" extend="{{myAppointGrid.extend}}" >
+                <i-grid-item wx:for="{{myAppointGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+            </i-grid>
+        </view>
+        <view class="grid-container">
+            <i-grid title="{{myProvideGird.title}}" rowNum="{{myProvideGird.rowNum}}">
+                <i-grid-item wx:for="{{myProvideGird.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+            </i-grid>
+        </view>
+        <view class="grid-container">
+            <i-grid title="{{mySeekGrid.title}}" rowNum="{{mySeekGrid.rowNum}}" >
+                <i-grid-item wx:for="{{mySeekGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+
+            </i-grid>
+        </view>
+    </view>
+</view>

@@ -20,7 +20,7 @@ Page({
     },
 
     onShow : function(){
-        this._resetForm()
+
     },
 
     handleSubmit : async function (event){
@@ -41,7 +41,7 @@ Page({
 
         try{
             await Service.publishService(formData)
-
+            this.selectComponent("#form").reset()
             wx.navigateTo({
                 url : "/pages/publish-success/publish-success"
             })

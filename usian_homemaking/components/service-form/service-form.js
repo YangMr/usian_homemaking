@@ -114,10 +114,10 @@ Component({
         }
     },
     lifetimes: {
-        attached: function () {
-            // 在组件实例进入页面节点树时执行
-            this._init()
-        },
+        // attached: function () {
+        //     // 在组件实例进入页面节点树时执行
+        //     this._init()
+        // },
     },
     methods: {
         _init: async function () {
@@ -200,6 +200,20 @@ Component({
             this.setData({
                 ['formData.cover_image_id'] : id
             })
+        },
+        reset(){
+            const formData = {
+                type: null,
+                    title: "",
+                    category_id: null,
+                    cover_image_id: null,
+                    description: "",
+                    designated_place: false,
+                    begin_date: "",
+                    end_date: "",
+                    price: ""
+            }
+            this.setData({formData})
         }
     }
 });
