@@ -1,4 +1,7 @@
 <view class="container">
-    <i-icon wx:if="{{icon}}" color="#333333" name="{{icon}}" size="{{iconSize}}"></i-icon>
-    <text>{{text}}</text>
+    <i-badge show="{{showBadge}}" count="{{badgeCount}}" type="top-right">
+        <i-icon wx:if="{{icon}}" color="#333333" name="{{icon}}" size="{{iconSize}}"></i-icon>
+        <text>{{text}}</text>
+    </i-badge>
+
 </view>

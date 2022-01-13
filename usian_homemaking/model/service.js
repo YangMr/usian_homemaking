@@ -86,6 +86,18 @@ class Service extends Base{
             data : serviceData
         })
     }
+
+    /**
+     * 查询我的服务状态统计
+     * @param type
+     * @returns {Promise<*>}
+     */
+    static getServiceStatus(type){
+        return Http.request({
+            url : `/v1/service/count?type=${type}`,
+            method : 'GET'
+        })
+    }
 }
 
 export default Service

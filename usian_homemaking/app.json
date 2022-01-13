@@ -73,7 +73,8 @@
     "i-image-uploader" : "/components/image-uploader/image-uploader",
     "i-grid" : "/components/grid/grid",
     "i-grid-item" : "/components/grid-item/grid-item",
-    "mp-badge": "weui-miniprogram/badge/badge"
+    "mp-badge": "weui-miniprogram/badge/badge",
+    "i-badge" : "/components/badge/badge"
   },
   "useExtendedLib": {
     "weui": true

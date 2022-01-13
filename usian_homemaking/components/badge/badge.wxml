@@ -1,0 +1,6 @@
+<view class="container">
+    <view wx:if="{{show}}" class="dot {{type}}" >
+        {{count}}
+    </view>
+    <slot></slot>
+</view>

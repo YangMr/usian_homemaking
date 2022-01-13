@@ -11,7 +11,9 @@ Component({
             type : String,
             value : "50"
         },
-        text : String
+        text : String,
+        showBadge : Boolean,
+        badgeCount : Number
     },
     data: {},
     methods: {}

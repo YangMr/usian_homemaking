@@ -5,24 +5,25 @@
     <view class="main">
         <view class="grid-container">
             <i-grid title="{{appointWithMeGrid.title}}" rowNum="{{appointWithMeGrid.rowNum}}" extend="{{appointWithMeGrid.extend}}">
-                <i-grid-item wx:for="{{appointWithMeGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+                <i-grid-item showBadge="{{appointWithMeStatus[item.badge]}}" badgeCount="{{appointWithMeStatus[item.badge]}}" wx:for="{{appointWithMeGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
             </i-grid>
         </view>
         <view class="grid-container">
             <i-grid title="{{myAppointGrid.title}}" rowNum="{{myAppointGrid.rowNum}}" extend="{{myAppointGrid.extend}}" >
-                <i-grid-item wx:for="{{myAppointGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+                <i-grid-item showBadge="{{myAppointStatus[item.badge]}}" badgeCount="{{myAppointStatus[item.badge]}}" wx:for="{{myAppointGrid.gridItems}}"  wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
             </i-grid>
         </view>
         <view class="grid-container">
             <i-grid title="{{myProvideGird.title}}" rowNum="{{myProvideGird.rowNum}}">
-                <i-grid-item wx:for="{{myProvideGird.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+                <i-grid-item showBadge="{{provideServiceStatus[item.badge]}}" badgeCount="{{provideServiceStatus[item.badge]}}" wx:for="{{myProvideGird.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
             </i-grid>
         </view>
         <view class="grid-container">
             <i-grid title="{{mySeekGrid.title}}" rowNum="{{mySeekGrid.rowNum}}" >
-                <i-grid-item wx:for="{{mySeekGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
+                <i-grid-item showBadge="{{seekServiceStatus[item.badge]}}" badgeCount="{{seekServiceStatus[item.badge]}}" wx:for="{{mySeekGrid.gridItems}}" wx:key="index" slot="{{index}}" icon="{{item.icon}}" text="{{item.text}}"></i-grid-item>
 
             </i-grid>
         </view>
     </view>
 </view>
+
